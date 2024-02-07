@@ -1,4 +1,5 @@
 {
+    "regions":["bom1"],
     "builds": [
         {
             "src": "./webapp.py",
@@ -8,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "/webapp.py"
         }
     ]
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Score Checker</title>
+    <style>
+
+
+
+
+#result {
+	font-size: 2rem;
+	margin: 7px 1%;
+}
+button {
+	height: 40px;
+	width: 140px;
+  margin: 7px 1%;
+}
+input {
+	width: 98%;
+	height: 2.5rem;
+	margin: 7px 1%;
+  padding: 0;
+}
+h1,p {
+    text-align: center;
+}
+.error {
+    color: red;
+}
+.footer {
+  position: fixed;
+  font-size: 0.1rem
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+    </style>
+</head>
+<body>
+    <h1>JEE Score Checker</h1>
+    <p>Please Enter the link to your answer sheet below. (It starts with https://cdn3.digialm.com or something like that)</p>
+    <input type="text">
+    <br>
+    <button type="button" onclick="send_data();">View Result</button>
+    <div id="result"></div>
+      
+
+  <div class="footer">
+    <p style="font-size:1rem;">Made with haste 🏃 by Harsh Sharma</p>
+</div> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function send_data(){
+        $.post("/result", {"link": $("input").val()}).done(function( data ) {  
+            if (data === "Exception") {
+                $("#result").html( "Invalid Link")
+                $("#result").addClass("error")
+            }else{
+            $( "#result" ).html( data + "/300" )
+            $("#result").removeClass("error") 
+            }
+        }) 
+    }
+    </script>
+</body>
+</html>
