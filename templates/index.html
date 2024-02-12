@@ -59,7 +59,7 @@
           if (data === "Exception") {
             $("#result").html( "Invalid Link")
             $("#result").addClass("error")
-            $("button").addClass("btn-error")
+            $("button").addClass("btn-danger")
             $("button").removeClass("btn-primary")
             $("button").removeClass("btn-success")
           }else{
@@ -68,7 +68,7 @@
 
             $("button").addClass("btn-success");
             $("button").removeClass("btn-primary")
-            $("button").removeClass("btn-error")
+            $("button").removeClass("btn-danger")
           }
         }) 
     }
