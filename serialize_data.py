@@ -84,7 +84,7 @@ def serialize_answers(f):
             {
                 "id": int(question_id),
                 "type": answer_type,
-                "answer": int(my_answer),
+                "answer": int(float(my_answer)),
                 "option_id": a,
             }
         )
