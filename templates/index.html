@@ -59,12 +59,16 @@
           if (data === "Exception") {
             $("#result").html( "Invalid Link")
             $("#result").addClass("error")
+            $("button").addClass("btn-error")
+            $("button").removeClass("btn-primary")
+            $("button").removeClass("btn-success")
           }else{
             $("#result").html(data + "/300");
             $("#result").removeClass("error");
 
             $("button").addClass("btn-success");
             $("button").removeClass("btn-primary")
+            $("button").removeClass("btn-error")
           }
         }) 
     }
